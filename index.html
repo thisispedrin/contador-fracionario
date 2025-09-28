@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Contador Fracionário</title>
+</head>
+
+<body>
+
+  <section>
+    <h1>"enter"= +</h1>
+    <p>1/2</p>
+
+    <button onclick="somar()">mais</button>
+    <button onclick="zerar()">zerar</button>
+    <button onclick="menos()">diminuir</button>
+
+  </section>
+
+  <script>
+    let numerador = 1;
+    let denominador = 2;
+
+    function tela() {
+      document.querySelector("p")
+      .innerText = numerador + "/" + denominador;
+    }
+
+    function somar() {
+      if (numerador < denominador) {
+        numerador++;
+      } else if (denominador == 5) {
+        alert("chegou no 5/5")
+        denominador++
+        numerador = 0;
+      } else if (denominador == 10) {
+        alert("chegou no 10/10 divertido não e")
+        denominador++
+        numerador = 0;
+      } else if (denominador == 20) {
+        alert("chegou no 20/20 agora e serio para")
+        denominador++
+        numerador = 0;
+      } else if (denominador == 50) {
+        alert("chegou no 50/50 ok chegou longe ne mais agora pode parar")
+        denominador++
+        numerador = -20;
+      } else if (denominador == 70) {
+        alert("fim")
+      }
+      else {
+        denominador++;
+        numerador = 0;
+      }
+      tela();
+    }
+
+    function menos() {
+      if (numerador > 0) {
+        numerador--;
+      } else if (denominador > 1) {
+        denominador--;
+        numerador = denominador;
+      }
+      tela();
+    }
+
+    function zerar() {
+      numerador = 0;
+      denominador = 1;
+      tela();
+    }
+    document.addEventListener("keydown",function(event){
+        if(event.key === "Enter")
+    {
+        somar();
+    
+    }
+    });
+    tela()
+
+  </script>
+</body>
+</html>
